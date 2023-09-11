@@ -3,6 +3,9 @@
 @use 'shows';
 @use 'plans';
 @use 'available-devices';
+@use 'faq';
+@use 'footer';
+@use 'header';
 
 @font-face {
     font-family: 'Avenir';
@@ -39,7 +42,7 @@ body {
 }
 
 .text--big {
-    @include text(18p);
+    @include text(18px);
 }
 
 .text {
@@ -70,16 +73,43 @@ body {
 }
 
 .button {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 60px;
     font-size: 18px;
     color: variaveis.$textColorSecundary;
-    background-color: #6421ff;
+    background-color: variaveis.$bgButtonPrincipal;
     text-transform: uppercase;
     border-radius: 4px;
-    margin-top: 2vw;
-    margin-bottom: 8px;
+    text-decoration: none;
+    padding: 8px 14px;
+    letter-spacing: 1px;
+    border: 1px solid variaveis.$bgPrincipal;
+
+    &:hover {
+        background-color: lighten($color: variaveis.$bgButtonPrincipal, $amount: 3%);
+    }
+
+    &--secondary {
+        background-color: variaveis.$bgButtonSecondary;
+        border-color: variaveis.$bgButtonSecondary;
+
+        &:hover {
+            background-color: lighten($color: variaveis.$bgButtonSecondary, $amount: 3%);
+        }
+    }
+
+    &--dark {
+        background-color: rgba(variaveis.$brButtonDark, 0.8);
+        border-color: variaveis.$textColorSecundary;
+        
+        &:hover {
+            background-color: variaveis.$textColorSecundary;
+            color: variaveis.$bgPrincipal;
+        }
+    }
 }
 
 .image-text-section {
